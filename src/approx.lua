@@ -2,11 +2,11 @@ require "torch"
 require "nn"
 require "gnuplot"
 
-function elemGauss(x)
+function cgauss(x)
     return torch.exp(torch.cmul(x, x) * -0.1)
 end
 
-function plotGauss(fig, z, title)
+function gaussplot(fig, z, title)
     gnuplot.figure(fig)
     gnuplot.raw("set key off")
     gnuplot.raw("set xrange [0:11]")
@@ -21,9 +21,9 @@ end
 
 x = torch.range(-5, 5)
 y = x:clone()
-z = torch.ger(elemGauss(x), elemGauss(y)) - 0.5
+z = torch.ger(cgauss(x), cgauss(y)) - 0.5
 
-plotGauss(1, z, "Gauss function (Exact)")
+gaussplot(1, z, "Gauss function (Exact)")
 
 xs = x:size()[1]
 ys = y:size()[1]
@@ -63,5 +63,5 @@ for epoch = 1, epochs do
     mlp:updateParameters(eta)
     -- plot progress
     zz = torch.reshape(mlp.output, xs, ys)
-    plotGauss(2, zz, "Gauss Function (Approx) with " .. hidden .. " hidden nodes at epoch " .. epoch)
+    gaussplot(2, zz, "Gauss Function (Approx) with " .. hidden .. " hidden nodes at epoch " .. epoch)
 end
