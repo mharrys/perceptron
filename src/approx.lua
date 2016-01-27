@@ -29,6 +29,7 @@ xs = x:size()[1]
 ys = y:size()[1]
 ns = xs * ys -- grid size
 
+-- equivalent of meshgrid in MATLAB/Octave/numpy
 xx = torch.Tensor(xs, xs)
 yy = torch.Tensor(ys, ys)
 for i = 1, xs do xx[i] = x:clone() end
