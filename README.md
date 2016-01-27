@@ -28,8 +28,8 @@ the exact function values and the second shows the approximation. Experiment
 by adjusting the number of hidden nodes and watch how the network will
 underfit or overfit.
 
-![fig4](https://github.com/mharrys/perceptron/raw/master/img/approx_actual.png)
-![fig5](https://github.com/mharrys/perceptron/raw/master/img/approx_expected.png)
+![fig4](https://github.com/mharrys/perceptron/raw/master/img/approx_expected.png)
+![fig5](https://github.com/mharrys/perceptron/raw/master/img/approx_actual.png)
 
 References
 ==========
